@@ -1,10 +1,8 @@
 // Render Prop
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useFormik } from 'formik';
 import { Box, Button, Card, TextField, Typography } from '@mui/material';
 import { converter } from '../services';
-import { useSelector } from 'react-redux';
-import { RootState } from '../store';
 
 const ConverterForm = () => {
   const [result, setResult] = useState('');
@@ -34,7 +32,7 @@ const ConverterForm = () => {
           setResult(`${values.converterField} is ${conversion}`);
         })
         .catch((err) => {
-          setResult('Please use codes in currencies page');
+          setResult('Please use codes below');
         });
     },
   });
@@ -42,7 +40,7 @@ const ConverterForm = () => {
   return (
     <Card sx={{ m: 2, p: 2 }}>
       <Typography variant='subtitle2' gutterBottom>
-        Type your text here
+        Type your text here.
       </Typography>
       <form onSubmit={formik.handleSubmit}>
         <Box sx={{ display: 'flex', alignItems: 'center', m: '1rem 0' }}>
